@@ -4,31 +4,23 @@
 
 <div class="container">
     <header class="site-header">
-        <h1 class="site-title">Online Cinema</h1>
-        <h2 class="site-description">test page for movie viewer</h2>
+        <h1 class="site-title">Fresh Cucumbers</h1>
 
         <nav class="main-navigation">
             <ul class="menu">
-                <li>Home</li>
-                <li>About</li>
-                <li>Catalog</li>
-                <li>Random Movie</li>
-                <li>New</li>
-                <li>Hot</li>
-                <li>Contact</li>
+                <li><input class="FindTextBox" type="text" placeholder="Find movie..."></li>
+                <li><input class="FindButton" type="submit" value="Find"></li>
             </ul>
         </nav>
     </header>
 
     <div class="portfoliogrid">
         <img src="images/01.jpg" alt="Film Poster Image" />
-        <h2 class="entry-title">Film 1</h2>
-        <a class='portfoliotype' href="Home/FilmPage?index=0">tag1</a>
-        <a class='portfoliotype' href="Home/FilmPage?index=0">tag2</a>
-        <a class='portfoliotype' href="Home/FilmPage?index=0">tag3</a>
+        <a class="entry-title" href="Home/FilmPage?index=0">Film 1</a> 
+
 
         <img src="images/02.jpg" alt="Film Poster Image" />
-        <h2 class="entry-title">Film 2</h2>
+        <a class="entry-title">Film 2</a>
         <a class='portfoliotype' href="Home/FilmPage?index=1">tag1</a>
         <a class='portfoliotype' href="Home/FilmPage?index=1">tag2</a>
         <a class='portfoliotype' href="Home/FilmPage?index=1">tag3</a>
@@ -61,7 +53,7 @@
     }
 
     html {
-        border: 12px solid #111;
+        border: 7px solid #2a7831;
     }
 
     .container {
@@ -75,9 +67,9 @@
     }
 
     .site-title {
-        font-family: 'Herr Von Muellerhoff';
+      
         font-size: 60px;
-        font-weight: 300;
+        font-weight: bold;
         letter-spacing: 2px;
         line-height: 1;
         margin-top: 25px;
@@ -87,7 +79,7 @@
 
     .site-description {
         font-size: 14px;
-        font-style: italic;
+
         font-weight: 300;
         margin-top: -15px;
         margin-bottom: 35px;
@@ -142,8 +134,9 @@
     }
 
     img {
-        height: auto;
+        height: 500px;
         max-width: 100%;
+        margin-top: 20px;
     }
 
     .entry-title {
@@ -151,9 +144,38 @@
         font-size: 20px;
         letter-spacing: 2px;
         line-height: 1.4;
-        margin-top: 0;
-        margin-bottom: 0;
         text-transform: uppercase;
         color: #222;
+        text-decoration: none;
+    }
+
+    .FindTextBox, .FindTextBox textarea {
+        background-color: #e6e6e6;
+        border: 1px solid #e6e6e6;
+        padding: 10px;
+        width: 500px;
+    }
+
+    .FindTextBox:focus, .FindTextBox textarea:focus {
+        background-color: #fff;
+        color: #111;
+    }
+
+    .FindButton {
+        border: 1px solid #2a7831;
+        border-radius: 2px;
+        background: #2a7831;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        font-size: 1.4rem;
+        transition: all 0.2s ease-in-out;
+        height: 35px;
+        width: 100px;
+    }
+
+    .FindButton:hover {
+        opacity: 0.6;
+        transition: all 0.2s ease-in-out;
     }
 </style>
