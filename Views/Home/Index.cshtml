@@ -1,0 +1,159 @@
+﻿@{
+    ViewData["Title"] = "Online Cinema";
+}
+
+<div class="container">
+    <header class="site-header">
+        <h1 class="site-title">Online Cinema</h1>
+        <h2 class="site-description">test page for movie viewer</h2>
+
+        <nav class="main-navigation">
+            <ul class="menu">
+                <li>Home</li>
+                <li>About</li>
+                <li>Catalog</li>
+                <li>Random Movie</li>
+                <li>New</li>
+                <li>Hot</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="portfoliogrid">
+        <img src="images/01.jpg" alt="Film Poster Image" />
+        <h2 class="entry-title">Film 1</h2>
+        <a class='portfoliotype' href="Home/FilmPage?index=0">tag1</a>
+        <a class='portfoliotype' href="Home/FilmPage?index=0">tag2</a>
+        <a class='portfoliotype' href="Home/FilmPage?index=0">tag3</a>
+
+        <img src="images/02.jpg" alt="Film Poster Image" />
+        <h2 class="entry-title">Film 2</h2>
+        <a class='portfoliotype' href="Home/FilmPage?index=1">tag1</a>
+        <a class='portfoliotype' href="Home/FilmPage?index=1">tag2</a>
+        <a class='portfoliotype' href="Home/FilmPage?index=1">tag3</a>
+
+        <img src="images/03.jpg" alt="Film Poster Image" />
+        <h2 class="entry-title">Film 3</h2>
+        <a class='portfoliotype' href="Home/FilmPage?index=2">tag1</a>
+        <a class='portfoliotype' href="Home/FilmPage?index=2">tag2</a>
+        <a class='portfoliotype' href="Home/FilmPage?index=2">tag3</a>
+
+        <img src="images/04.jpg" alt="Film Poster Image" />
+        <h2 class="entry-title">Film 4</h2>
+        <a class='portfoliotype' href="Home/FilmPage?index=3">tag1</a>
+        <a class='portfoliotype' href="Home/FilmPage?index=3">tag2</a>
+        <a class='portfoliotype' href="Home/FilmPage?index=3">tag3</a>
+
+        <img src="images/05.jpg" alt="Film Poster Image" />
+        <h2 class="entry-title">Film 5</h2>
+        <a class='portfoliotype' href="Home/FilmPage?index=4">tag1</a>
+        <a class='portfoliotype' href="Home/FilmPage?index=4">tag2</a>
+        <a class='portfoliotype' href="Home/FilmPage?index=4">tag3</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background: #fff;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+
+    html {
+        border: 12px solid #111;
+    }
+
+    .container {
+        margin: 0 auto;
+        width: 960px;
+    }
+
+    .site-header {
+        padding-top: 2em;
+        padding-bottom: 1em;
+    }
+
+    .site-title {
+        font-family: 'Herr Von Muellerhoff';
+        font-size: 60px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        line-height: 1;
+        margin-top: 25px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .site-description {
+        font-size: 14px;
+        font-style: italic;
+        font-weight: 300;
+        margin-top: -15px;
+        margin-bottom: 35px;
+        text-align: center;
+        letter-spacing: 0px;
+    }
+
+    .menu {
+        display: table;
+        margin: 0 auto;
+        color: black;
+    }
+
+    .main-navigation {
+        background-color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        padding: 15px 0;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        text-transform: uppercase;
+    }
+
+        .main-navigation li {
+            display: inline;
+            float: left;
+            margin: 0 1em;
+            position: relative;
+        }
+
+    .portfoliogrid {
+        margin-left: -1.2%;
+        margin-right: -1.2%;
+        width: 30.93%;
+    }
+
+        .portfoliogrid .entry-title {
+            font-size: 14px;
+            color: #111;
+            font-weight: 400;
+        }
+
+    a.portfoliotype:after {
+        content: '/';
+        margin-left: 5px;
+    }
+
+    a.portfoliotype {
+        color: black;
+        text-decoration: none;
+    }
+
+    img {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .entry-title {
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: 2px;
+        line-height: 1.4;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-transform: uppercase;
+        color: #222;
+    }
+</style>
