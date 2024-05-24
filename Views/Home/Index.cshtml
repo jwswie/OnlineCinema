@@ -11,12 +11,15 @@
 
         <nav class="search-bar">
             <ul class="menu">
-                <li><input class="FindTextBox" type="text" placeholder="Find movie..."></li>
-                <li><input class="FindButton" type="submit" value="Find"></li>
+                <form method="get">
+                    <li><input class="FindTextBox" type="text" placeholder="Find movie..." name="filmName"></li>
+                    <li><input class="FindButton" type="submit" value="Find"></li>
+                </form>
             </ul>
         </nav>
+        <h2>@Model.Count()</h2>
     </header>
-
+    
     <div class="film-grid">
 @foreach (var film in Model){
         <div>
