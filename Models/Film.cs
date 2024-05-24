@@ -6,6 +6,7 @@ namespace OnlineCinema.Models
     {
         public int ID { get; set; }
         public string FilmName { get; set; }
+        public string FilmPoster { get; set; }
         public int ReleaseYear { get; set; }
         public string FilmDescription { get; set; }
         public string FilmTrailer { get; set; }

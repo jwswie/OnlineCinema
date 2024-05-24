@@ -1,10 +1,8 @@
-﻿﻿@using OnlineCinema.Models
+﻿@using OnlineCinema.Models
 @model Film
-
 
 @{
     ViewData["Title"] = "Film Page";
-
 }
 
 <div class="container">
@@ -14,14 +12,15 @@
 
     <div class="column two-thirds">
         <iframe src="@Model.FilmTrailer" width="1000" height="533" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
-        <h1 class="entry-title">e</h1>
-        <p>r</p>
+        <h1 class="entry-title">@Model.FilmName</h1>
+        <p>@Model.ReleaseYear</p>
         <p>Director: @Model.Director</p>
         <p>Screenwriter: @Model.Scenarist</p>
-        <blockquote><p>n</p></blockquote>
-        <p>s</p>
+        <blockquote><p>@Model.FilmDescription</p></blockquote>
+        <p>@Model.Actors</p>
     </div>
 </div>
+
 
 
 <style>

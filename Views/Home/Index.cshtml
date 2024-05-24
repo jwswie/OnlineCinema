@@ -20,8 +20,8 @@
     <div class="film-grid">
 @foreach (var film in Model){
         <div>
-            <img src="images/0@film.ID.jpg" alt="Film Poster Image" />
-            <a class="entry-title" href="Home/FilmPage?id=@film.ID">@film.Name</a>
+            <img src="@film.FilmPoster" alt="Film Poster Image" />
+            <a class="entry-title" href="Home/FilmPage?id=@film.ID">@film.FilmName</a>
             </div>
 }
     </div>
