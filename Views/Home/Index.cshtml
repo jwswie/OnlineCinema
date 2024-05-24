@@ -21,7 +21,7 @@
 @foreach (var film in Model){
         <div>
             <img src="images/0@film.ID.jpg" alt="Film Poster Image" />
-            <a class="entry-title" href="Home/FilmPage?index=0">@film.Name</a>
+            <a class="entry-title" href="Home/FilmPage?id=@film.ID">@film.Name</a>
             </div>
 }
     </div>

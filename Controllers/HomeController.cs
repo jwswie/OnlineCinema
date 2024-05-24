@@ -26,9 +26,14 @@ namespace OnlineCinema.Controllers
             return View(films);
         }
 
-        public IActionResult FilmPage(int index)
+        public async Task<IActionResult> FilmPage(int id)
         {
-            return View();
+            var film = await _context.Films.FindAsync(id);
+            if (film == null)
+            {
+                return NotFound();
+            }
+            return View(film);
         }
     }
 }
