@@ -11,6 +11,6 @@ namespace OnlineCinema.Models
         public string FilmTrailer { get; set; }
         public string Director { get; set; }
         public string Scenarist { get; set; }
-        public List<string> Actors { get; set; }
+        public string Actors { get; set; }
     }
 }

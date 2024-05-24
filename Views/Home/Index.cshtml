@@ -1,4 +1,7 @@
-﻿@{
+﻿﻿@using OnlineCinema.Models
+@model IEnumerable<Film>
+
+@{
     ViewData["Title"] = "Online Cinema";
 }
 
@@ -15,30 +18,14 @@
     </header>
 
     <div class="film-grid">
+@foreach (var film in Model){
         <div>
-            <img src="images/01.jpg" alt="Film Poster Image" />
-            <a class="entry-title" href="Home/FilmPage?index=0">Dune</a>
-        </div>
-        <div>
-            <img src="images/02.jpg" alt="Film Poster Image" />
-            <a class="entry-title" href="Home/FilmPage?index=0">Jaws</a>
-        </div>
-        <div>
-            <img src="images/03.jpg" alt="Film Poster Image" />
-            <a class="entry-title" href="Home/FilmPage?index=0">The Godfather</a>
-        </div>
-        <div>
-            <img src="images/04.jpg" alt="Film Poster Image" />
-            <a class="entry-title" href="Home/FilmPage?index=0">Transformers</a>
-        </div>
-        <div>
-            <img src="images/05.jpg" alt="Film Poster Image" />
-            <a class="entry-title" href="Home/FilmPage?index=0">Pulp Fiction</a>
-        </div>
+            <img src="images/0@film.ID.jpg" alt="Film Poster Image" />
+            <a class="entry-title" href="Home/FilmPage?index=0">@film.Name</a>
+            </div>
+}
     </div>
 </div>
-
-
 
 <style>
     body {
@@ -99,7 +86,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        gap: 54px; 
+        gap: 54px;
         margin-left: 0;
         margin-right: 0;
         padding: 20px 0;
@@ -115,13 +102,11 @@
             font-size: 14px;
             color: #111;
             font-weight: 400;
-            text-align: center; 
+            text-align: center;
             margin-top: 10px;
             display: block;
-            width: 100%; 
+            width: 100%;
         }
-
-
 
     .entry-title {
         font-weight: 700;
