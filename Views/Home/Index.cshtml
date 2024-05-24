@@ -6,7 +6,7 @@
     <header class="site-header">
         <h1 class="site-title">Fresh Cucumbers</h1>
 
-        <nav class="main-navigation">
+        <nav class="search-bar">
             <ul class="menu">
                 <li><input class="FindTextBox" type="text" placeholder="Find movie..."></li>
                 <li><input class="FindButton" type="submit" value="Find"></li>
@@ -14,36 +14,31 @@
         </nav>
     </header>
 
-    <div class="portfoliogrid">
-        <img src="images/01.jpg" alt="Film Poster Image" />
-        <a class="entry-title" href="Home/FilmPage?index=0">Film 1</a> 
-
-
-        <img src="images/02.jpg" alt="Film Poster Image" />
-        <a class="entry-title">Film 2</a>
-        <a class='portfoliotype' href="Home/FilmPage?index=1">tag1</a>
-        <a class='portfoliotype' href="Home/FilmPage?index=1">tag2</a>
-        <a class='portfoliotype' href="Home/FilmPage?index=1">tag3</a>
-
-        <img src="images/03.jpg" alt="Film Poster Image" />
-        <h2 class="entry-title">Film 3</h2>
-        <a class='portfoliotype' href="Home/FilmPage?index=2">tag1</a>
-        <a class='portfoliotype' href="Home/FilmPage?index=2">tag2</a>
-        <a class='portfoliotype' href="Home/FilmPage?index=2">tag3</a>
-
-        <img src="images/04.jpg" alt="Film Poster Image" />
-        <h2 class="entry-title">Film 4</h2>
-        <a class='portfoliotype' href="Home/FilmPage?index=3">tag1</a>
-        <a class='portfoliotype' href="Home/FilmPage?index=3">tag2</a>
-        <a class='portfoliotype' href="Home/FilmPage?index=3">tag3</a>
-
-        <img src="images/05.jpg" alt="Film Poster Image" />
-        <h2 class="entry-title">Film 5</h2>
-        <a class='portfoliotype' href="Home/FilmPage?index=4">tag1</a>
-        <a class='portfoliotype' href="Home/FilmPage?index=4">tag2</a>
-        <a class='portfoliotype' href="Home/FilmPage?index=4">tag3</a>
+    <div class="film-grid">
+        <div>
+            <img src="images/01.jpg" alt="Film Poster Image" />
+            <a class="entry-title" href="Home/FilmPage?index=0">Dune</a>
+        </div>
+        <div>
+            <img src="images/02.jpg" alt="Film Poster Image" />
+            <a class="entry-title" href="Home/FilmPage?index=0">Jaws</a>
+        </div>
+        <div>
+            <img src="images/03.jpg" alt="Film Poster Image" />
+            <a class="entry-title" href="Home/FilmPage?index=0">The Godfather</a>
+        </div>
+        <div>
+            <img src="images/04.jpg" alt="Film Poster Image" />
+            <a class="entry-title" href="Home/FilmPage?index=0">Transformers</a>
+        </div>
+        <div>
+            <img src="images/05.jpg" alt="Film Poster Image" />
+            <a class="entry-title" href="Home/FilmPage?index=0">Pulp Fiction</a>
+        </div>
     </div>
 </div>
+
+
 
 <style>
     body {
@@ -67,7 +62,6 @@
     }
 
     .site-title {
-      
         font-size: 60px;
         font-weight: bold;
         letter-spacing: 2px;
@@ -77,23 +71,13 @@
         text-align: center;
     }
 
-    .site-description {
-        font-size: 14px;
-
-        font-weight: 300;
-        margin-top: -15px;
-        margin-bottom: 35px;
-        text-align: center;
-        letter-spacing: 0px;
-    }
-
     .menu {
         display: table;
         margin: 0 auto;
         color: black;
     }
 
-    .main-navigation {
+    .search-bar {
         background-color: #fff;
         font-size: 14px;
         font-weight: 700;
@@ -104,40 +88,40 @@
         text-transform: uppercase;
     }
 
-        .main-navigation li {
+        .search-bar li {
             display: inline;
             float: left;
             margin: 0 1em;
             position: relative;
         }
 
-    .portfoliogrid {
-        margin-left: -1.2%;
-        margin-right: -1.2%;
-        width: 30.93%;
+    .film-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 54px; 
+        margin-left: 0;
+        margin-right: 0;
+        padding: 20px 0;
     }
 
-        .portfoliogrid .entry-title {
+        .film-grid img {
+            height: 300px;
+            max-width: 200px;
+            object-fit: cover;
+        }
+
+        .film-grid .entry-title {
             font-size: 14px;
             color: #111;
             font-weight: 400;
+            text-align: center; 
+            margin-top: 10px;
+            display: block;
+            width: 100%; 
         }
 
-    a.portfoliotype:after {
-        content: '/';
-        margin-left: 5px;
-    }
 
-    a.portfoliotype {
-        color: black;
-        text-decoration: none;
-    }
-
-    img {
-        height: 500px;
-        max-width: 100%;
-        margin-top: 20px;
-    }
 
     .entry-title {
         font-weight: 700;
@@ -156,10 +140,10 @@
         width: 500px;
     }
 
-    .FindTextBox:focus, .FindTextBox textarea:focus {
-        background-color: #fff;
-        color: #111;
-    }
+        .FindTextBox:focus, .FindTextBox textarea:focus {
+            background-color: #fff;
+            color: #111;
+        }
 
     .FindButton {
         border: 1px solid #2a7831;
@@ -174,8 +158,8 @@
         width: 100px;
     }
 
-    .FindButton:hover {
-        opacity: 0.6;
-        transition: all 0.2s ease-in-out;
-    }
+        .FindButton:hover {
+            opacity: 0.6;
+            transition: all 0.2s ease-in-out;
+        }
 </style>
