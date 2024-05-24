@@ -21,6 +21,7 @@ namespace OnlineCinema
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+
                 });
     }
 }
