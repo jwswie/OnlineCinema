@@ -13,5 +13,6 @@ namespace OnlineCinema.Models
         public string Director { get; set; }
         public string Scenarist { get; set; }
         public string Actors { get; set; }
+        public ICollection<LikedFilm> LikedFilms { get; set; }
     }
 }
