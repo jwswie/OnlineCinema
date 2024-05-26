@@ -21,7 +21,8 @@ namespace OnlineCinema.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string filmName)
+
+        public async Task<IActionResult> Index(string filmName, string genre, int releaseYear)
         {
             var films = await _context.Films.ToListAsync();
 
@@ -30,6 +31,16 @@ namespace OnlineCinema.Controllers
             if (!string.IsNullOrEmpty(filmName))
             {
                 filteredFilms = filteredFilms.Where(f => f.FilmName.ToLower().Contains(filmName.ToLower()));
+            }
+
+            if (!string.IsNullOrEmpty(genre))
+            {
+                filteredFilms = filteredFilms.Where(f => f.FilmGenre == genre);
+            }
+
+            if (releaseYear > 1872) 
+            {
+                filteredFilms = filteredFilms.Where(f => f.ReleaseYear == releaseYear);
             }
 
             return View(filteredFilms);
