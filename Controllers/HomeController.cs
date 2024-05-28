@@ -5,20 +5,37 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using OnlineCinema.Models;
 
 namespace OnlineCinema.Controllers
 {
     public class HomeController : Controller
     {
 
-        public IActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+
+        public HomeController(ApplicationDbContext context)
         {
-            return View();
+            _context = context;
         }
 
-        public IActionResult FilmPage(int index)
+        public async Task<IActionResult> Index(/*string filmName*/)
         {
-            return View();
+            var films = await _context.Films.ToListAsync();
+
+            return View(films);
+        }
+
+        public async Task<IActionResult> FilmPage(int id)
+        {
+            var film = await _context.Films.FindAsync(id);
+            if (film == null)
+            {
+                return NotFound();
+            }
+            return View(film);
         }
     }
 }
