@@ -15,13 +15,12 @@ namespace OnlineCinema.Controllers
 
         private readonly ApplicationDbContext _context;
 
-
         public HomeController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IActionResult> Index(/*string filmName*/)
+        public async Task<IActionResult> Index()
         {
             var films = await _context.Films.ToListAsync();
 

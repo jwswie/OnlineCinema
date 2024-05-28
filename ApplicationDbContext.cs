@@ -8,7 +8,7 @@ namespace OnlineCinema
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-          // Database.EnsureCreated();
+           // Database.EnsureCreated();
         }
         public DbSet<Film> Films { get; set; }
     }
