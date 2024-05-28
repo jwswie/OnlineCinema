@@ -1,154 +1,368 @@
-﻿﻿@using OnlineCinema.Models
+@using OnlineCinema.Models
 @model IEnumerable<Film>
 
 @{
     ViewData["Title"] = "Online Cinema";
+
 }
 
-<div class="container">
-    <header class="site-header">
-        <h1 class="site-title">Fresh Cucumbers</h1>
+<div id="main-container">
+    <header>
+        <h1 id="logo">Fresh Cucumbers</h1>
 
-        <nav class="search-bar">
-            <ul class="menu">
-                <form method="get">
-                    <li><input class="FindTextBox" type="text" placeholder="Find movie..." name="filmName"></li>
-                    <li><input class="FindButton" type="submit" value="Find"></li>
-                </form>
+        <div id="navigation">
+            <ul>
+                <li><a class="active" href="#">HOME</a></li>
+                <li><a href="#">NEW</a></li>
+                <li><a href="#">HOT</a></li>
+                <li><a href="#">COMING SOON</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="#">YOUR PROFILE</a></li>
             </ul>
-        </nav>
-        <h2>@Model.Count() movies found</h2>
-    </header>
-    
-    <div class="film-grid">
-@foreach (var film in Model){
-        <div>
-            <img src="@film.FilmPoster" alt="Film Poster Image" />
-            <a class="entry-title" href="Home/FilmPage?id=@film.ID">@film.FilmName</a>
+        </div>
+
+        <div id="sub-navigation">
+            <ul>
+                <li><a href="#">SHOW ALL</a></li>
+                <li><a href="#">LATEST MOVIES</a></li>
+                <li><a href="#">TOP RATED</a></li>
+                <li><a href="#">CATEGORIES</a></li>
+            </ul>
+            <div id="search">
+                <form method="get">
+                    <label for="search-field">SEARCH</label>
+                    <input type="text" name="search field" placeholder="Find movie..." id="search-field" class="blink search-field" />
+                    <input type="submit" value="GO!" class="search-button" />
+                </form>
             </div>
-}
+        </div>
+
+    </header>
+
+    <div id="film-grid">
+        <div class="box">
+            <div class="head">
+                <h2>LATEST MOVIES</h2>
+                <p class="text-right"><a href="#">See all</a></p>
+            </div>
+@foreach (var film in Model){
+        <div class="movie">
+            <div class="movie-image"> <span class="play"><span class="name">@film.FilmName</span></span> <a href="Home/FilmPage?id=@film.ID"><img src="@film.FilmPoster" alt="Film-Poster-Image" /></a> </div>
+            <div class="rating">
+                <p>RATING</p>
+                <div class="stars">
+                    <div class="stars-in"> </div>
+                </div>
+                <span class="comments">12</span>
+            </div>
+        </div>
+        }
+   
+        <div class="divider">-</div>
+        </div>
+        <div class="box">
+            <div class="head">
+                <h2>TOP RATED</h2>
+                <p class="text-right"><a href="#">See all</a></p>
+            </div>
+            <div class="movie">
+                <div class="movie-image"> <span class="play"><span class="name">TRANSFORMERS</span></span> <a href="#"><img src="images/movie7.jpg" alt="" /></a> </div>
+                <div class="rating">
+                    <p>RATING</p>
+                    <div class="stars">
+                        <div class="stars-in"> </div>
+                    </div>
+                    <span class="comments">12</span>
+                </div>
+            </div>
+            <div class="movie">
+                <div class="movie-image"> <span class="play"><span class="name">MAGNETO</span></span> <a href="#"><img src="images/movie8.jpg" alt="" /></a> </div>
+                <div class="rating">
+                    <p>RATING</p>
+                    <div class="stars">
+                        <div class="stars-in"> </div>
+                    </div>
+                    <span class="comments">12</span>
+                </div>
+            </div>
+            <div class="movie">
+                <div class="movie-image"> <span class="play"><span class="name">KUNG FU PANDA</span></span> <a href="#"><img src="images/movie9.jpg" alt="" /></a> </div>
+                <div class="rating">
+                    <p>RATING</p>
+                    <div class="stars">
+                        <div class="stars-in"> </div>
+                    </div>
+                    <span class="comments">12</span>
+                </div>
+            </div>
+            <div class="movie">
+                <div class="movie-image"> <span class="play"><span class="name">EAGLE EYE</span></span> <a href="#"><img src="images/movie10.jpg" alt="" /></a> </div>
+                <div class="rating">
+                    <p>RATING</p>
+                    <div class="stars">
+                        <div class="stars-in"> </div>
+                    </div>
+                    <span class="comments">12</span>
+                </div>
+            </div>
+            <div class="movie">
+                <div class="movie-image"> <span class="play"><span class="name">NARNIA</span></span> <a href="#"><img src="images/movie11.jpg" alt="" /></a> </div>
+                <div class="rating">
+                    <p>RATING</p>
+                    <div class="stars">
+                        <div class="stars-in"> </div>
+                    </div>
+                    <span class="comments">12</span>
+                </div>
+            </div>
+            <div class="movie last">
+                <div class="movie-image"> <span class="play"><span class="name">ANGELS &amp; DEMONS</span></span> <a href="#"><img src="images/movie12.jpg" alt="" /></a> </div>
+                <div class="rating">
+                    <p>RATING</p>
+                    <div class="stars">
+                        <div class="stars-in"> </div>
+                    </div>
+                    <span class="comments">12</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <style>
-    body {
-        background: #fff;
+    * {
         margin: 0;
-        letter-spacing: 1px;
+        padding: 0;
     }
 
-    html {
-        border: 7px solid #2a7831;
+    body {
+        font-size: 12px;
+        line-height: 1.3;
+        font-family: Arial, Helvetica, Sans-Serif;
+        color: #ccc;
+        background: black;
     }
 
-    .container {
-        margin: 0 auto;
-        width: 960px;
+    a {
+        color: #66f200;
+        text-decoration: underline;
+        cursor: pointer;
     }
 
-    .site-header {
-        padding-top: 2em;
-        padding-bottom: 1em;
+        a:hover {
+            text-decoration: none;
+        }
+
+    .divider {
+        line-height: 0;
+        text-indent: -4000px;
+        clear: both;
     }
 
-    .site-title {
-        font-size: 60px;
+    .text-right {
+        text-align: right;
+    }
+
+    h2 {
+        font-size: 10px;
+        color: #66f200;
         font-weight: bold;
-        letter-spacing: 2px;
-        line-height: 1;
-        margin-top: 25px;
-        margin-bottom: 20px;
-        text-align: center;
     }
 
-    .menu {
-        display: table;
+    #main-container {
+        width: 980px;
         margin: 0 auto;
-        color: black;
     }
 
-    .search-bar {
-        background-color: #fff;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        padding: 15px 0;
-        border-top: 1px solid;
-        border-bottom: 1px solid;
-        text-transform: uppercase;
-    }
-
-    .search-bar li {
-        display: inline;
-        float: left;
-        margin: 0 1em;
+    #logo {
         position: relative;
-     }
-
-    .film-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 54px;
-        margin-left: 0;
-        margin-right: 0;
-        padding: 20px 0;
+        top: 37px;
+        left: 0;
+        float: left;
+        font-size: 35px;
     }
 
-
-    .film-grid img {
-        height: 300px;
-        max-width: 200px;
-        object-fit: cover;
+    #navigation {
+        float: right;
+        padding-top: 28px;
+        padding-bottom: 47px;
     }
 
-    .film-grid .entry-title {
+        #navigation ul {
+            list-style: none;
+        }
+
+            #navigation ul li {
+                float: left;
+                padding-left: 29px;
+            }
+
+                #navigation ul li a {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #fff;
+                    text-decoration: none;
+                }
+
+                    #navigation ul li a.active, #navigation ul li a:hover {
+                        color: #66f200;
+                    }
+
+    #sub-navigation {
+        clear: right;
+        border-top: 1px dashed #666;
+        border-bottom: 1px dashed #666;
+        padding: 8px 0;
+    }
+
+        #sub-navigation ul {
+            list-style: none;
+        }
+
+            #sub-navigation ul li {
+                float: left;
+                padding-right: 23px;
+            }
+
+                #sub-navigation ul li a {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #fff;
+                    line-height: 24px;
+                    text-decoration: none;
+                }
+
+                    #sub-navigation ul li a:hover {
+                        text-decoration: underline;
+                    }
+
+    #search {
+        width: 346px;
+        margin: 0 0 0 auto;
+    }
+
+        #search label {
+            float: left;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            line-height: 24px;
+            padding-right: 6px;
+        }
+
+    .search-field {
+        width: 238px;
+        border: 1px solid #413e3e;
+        background: #000;
+        color: #787878;
+        padding: 2px 0 2px 2px;
+    }
+
+    .search-button {
         font-size: 14px;
-        color: #111;
-        font-weight: 400;
-        text-align: center; 
-        margin-top: 10px;
-        display: block;
-        width: 100%; 
-    }
-
-    .entry-title {
-        font-weight: 700;
-        font-size: 20px;
-        letter-spacing: 2px;
-        line-height: 1.4;
-        text-transform: uppercase;
-        color: #222;
-        text-decoration: none;
-    }
-
-    .FindTextBox, .FindTextBox textarea {
-        background-color: #e6e6e6;
-        border: 1px solid #e6e6e6;
-        padding: 10px;
-        width: 500px;
-    }
-
-    .FindTextBox:focus, .FindTextBox textarea:focus {
-        background-color: #fff;
-        color: #111;
-    }
-
-    .FindButton {
-        border: 1px solid #2a7831;
-        border-radius: 2px;
-        background: #2a7831;
+        font-weight: bold;
+        border: 0;
+        background: none;
         color: #fff;
         cursor: pointer;
-        font-size: 14px;
-        font-size: 1.4rem;
-        transition: all 0.2s ease-in-out;
-        height: 35px;
-        width: 100px;
     }
 
-    .FindButton:hover {
-        opacity: 0.6;
-        transition: all 0.2s ease-in-out;
+    #film-grid {
+        border-bottom: 1px dashed #413e3e;
+    }
+
+    .box {
+        width: 980px;
+        border-bottom: 1px dashed #413e3e;
+        padding-bottom: 21px;
+    }
+
+    .head {
+        width: 980px;
+        padding-top: 14px;
+        padding-bottom: 11px;
+    }
+
+        .head h2 {
+            float: left;
+        }
+
+    .movie {
+        width: 152px;
+        float: left;
+        padding-right: 10px;
+    }
+
+    .movie-image {
+        float: left;
+        width: 152px;
+        height: 214px;
+        position: relative;
+    }
+
+    .play {
+        position: absolute;
+        width: 152px;
+        height: 214px;
+        background: url('images/image-hover.png');
+        z-index: 5;
+        cursor: pointer;
+        display: none;
+    }
+
+    .movie span.name {
+        font-weight: bold;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        padding-top: 160px;
+        display: none;
+    }
+
+    .movie-image:hover .play,
+    .movie-image:hover .name {
+        display: block;
+    }
+
+    .box .last {
+        padding: 0;
+    }
+
+    .rating {
+        float: left;
+        width: 152px;
+        padding-top: 8px;
+    }
+
+        .rating p {
+            float: left;
+            font-size: 10px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .rating .stars {
+            float: left;
+            width: 60px;
+            height: 11px;
+            background: url('images/stars.gif') no-repeat 0 0;
+            margin-left: 2px;
+        }
+
+        .rating .stars-in {
+            width: 48px;
+            display: inline;
+            background: url('images/stars.gif') no-repeat 0 bottom;
+            position: absolute;
+            height: 11px;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -4000px;
+        }
+
+    .comments {
+        background: url('images/comments.gif') no-repeat 0 center;
+        padding-left: 12px;
+        float: right;
     }
 </style>
