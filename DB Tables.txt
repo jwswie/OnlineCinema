@@ -1,0 +1,21 @@
+CREATE DATABASE OnlineCinema
+
+CREATE TABLE Films (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    FilmName NVARCHAR(255) NOT NULL,
+	FilmPoster NVARCHAR(255) NOT NULL,
+    ReleaseYear INT NOT NULL,
+	FilmDescription NVARCHAR(MAX) NOT NULL,
+	FilmTrailer NVARCHAR(255) NOT NULL,
+    Director NVARCHAR(255) NOT NULL,
+    Scenarist NVARCHAR(255) NOT NULL,
+    Actors NVARCHAR(MAX) NOT NULL
+)
+
+INSERT INTO Films (FilmName, FilmPoster, ReleaseYear, FilmDescription, FilmTrailer, Director, Scenarist, Actors)
+VALUES
+('Dune', 'images/01.jpg', 2021, 'Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding, must travel to the most dangerous planet in the universe to ensure the future of his family and his people. As malevolent forces explode into conflict over the planet exclusive supply of the most precious resource in existence, only those who can conquer their own fear will survive', 'https://embed.api.video/vod/vi43JvMxUitfM1kZvctJUKHN','Denis Villeneuve', 'Jon Spaihts, Denis Villeneuve, Eric Roth', 'Timothée Chalamet, Rebecca Ferguson, Oscar Isaac, Jason Momoa, Stellan Skarsgård'),
+('Jaws', 'images/02.jpg',1975, 'When a young woman is killed by a shark while skinny-dipping near the New England tourist town of Amity Island, police chief Martin Brody wants to close the beaches, but mayor Larry Vaughn overrules him, fearing that the loss of tourist revenue will cripple the town. Ichthyologist Matt Hooper and grizzled ship captain Quint offer to help Brody capture the killer beast, and the trio engage in an epic battle of man vs. nature', 'https://embed.api.video/vod/vi7QMdtLF4MIgIyArVu6XWCK','Steven Spielberg', 'Peter Benchley, Carl Gottlieb, Howard Sackler, John Milius, Robert Shaw', 'Roy Scheider, Robert Shaw, Richard Dreyfuss, Lorraine Gary, Murray Hamilton'),
+('The Godfather', 'images/03.jpg',1972, 'A crime saga that tells the story of the New York-based Sicilian mafia family Corleone. The movie covers the period 1945-1955.The head of the family, Don Vito Corleone, marries off his daughter. At this time, his favorite son Michael returns from World War II. Michael, a war hero and the pride of the family, expresses no desire to take over the brutal family business', 'https://embed.api.video/vod/vi4ujEo5ttJOKsFZ9yi9gUgA','Francis Ford Coppola', 'Mario Puzo, Francis Ford Coppola', 'Marlon Brando, Al Pacino, James Caan, Richard Castellano, Robert Duvall'),
+('Transformers', 'images/04.jpg',2007, 'The fate of humanity is at stake when two races of robots, the good Autobots and the villainous Decepticons, bring their war to Earth. The robots have the ability to change into different mechanical objects as they seek the key to ultimate power. Only a human youth, Sam Witwicky can save the world from total destruction', 'https://embed.api.video/vod/vi4NdKZWgdQo9jCHFzJo6RfO','Michael Bay', 'Roberto Orci, Alex Kurtzman', 'Shia LaBeouf, Tyrese Gibson, Josh Duhamel, Anthony Anderson, Megan Fox'),
+('Pulp Fiction', 'images/05.jpg',1994, 'Vincent Vega and Jules Winnfield are hitmen with a penchant for philosophical discussions. In this ultra-hip, multi-strand crime movie, their storyline is interwoven with those of their boss, gangster Marsellus Wallace; his actress wife, Mia; struggling boxer Butch Coolidge; master fixer Winston Wolfe and a nervous pair of armed robbers, "Pumpkin" and "Honey Bunny"', 'https://embed.api.video/vod/vi3O0KstlAZ9DFOkCFbBuFrD','Quentin Tarantino', 'Quentin Tarantino, Roger Avary', 'John Travolta, Uma Thurman, Samuel L. Jackson, Harvey Keitel, Bruce Willis')

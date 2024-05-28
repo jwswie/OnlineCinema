@@ -1,4 +1,7 @@
-﻿@{
+﻿@using OnlineCinema.Models
+@model Film
+
+@{
     ViewData["Title"] = "Film Page";
 }
 
@@ -8,15 +11,17 @@
     </header>
 
     <div class="column two-thirds">
-        <iframe src="https://embed.api.video/vod/vi43JvMxUitfM1kZvctJUKHN" width="1000" height="533" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
-        <h1 class="entry-title">Dune</h1>
-        <p>2021</p>
-        <p>Director: Denis Villeneuve</p>
-        <p>Scenarist: Jon Spaihts, Denis Villeneuve, Eric Roth</p>
-        <blockquote><p>Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding, must travel to the most dangerous planet in the universe to ensure the future of his family and his people. As malevolent forces explode into conflict over the planet exclusive supply of the most precious resource in existence, only those who can conquer their own fear will survive</p></blockquote>
-        <p>Cast: Timothée Chalamet, Rebecca Ferguson, Oscar Isaac, Jason Momoa, Stellan Skarsgård</p>
+        <iframe src="@Model.FilmTrailer" width="1000" height="533" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+        <h1 class="entry-title">@Model.FilmName</h1>
+        <p>@Model.ReleaseYear</p>
+        <p>Director: @Model.Director</p>
+        <p>Screenwriter: @Model.Scenarist</p>
+        <blockquote><p>@Model.FilmDescription</p></blockquote>
+        <p>@Model.Actors</p>
     </div>
 </div>
+
+
 
 <style>
     body {
@@ -39,9 +44,9 @@
         padding: 0 15px;
     }
 
-    .column.two-thirds {
-        width: 66.7%;
-    }
+        .column.two-thirds {
+            width: 66.7%;
+        }
 
     .site-header {
         padding-top: 2em;
