@@ -3,7 +3,6 @@
 
 @{
     ViewData["Title"] = "Online Cinema";
-
 }
 
 <div id="main-container">
@@ -26,12 +25,35 @@
                 <li><a href="#">SHOW ALL</a></li>
                 <li><a href="#">LATEST MOVIES</a></li>
                 <li><a href="#">TOP RATED</a></li>
-                <li><a href="#">CATEGORIES</a></li>
+                <li>
+                    <a href="#">CATEGORIES</a>
+                    <form>
+                        <div class="dropdown">
+                            <div class="genres">
+                                <label><input type="checkbox" name="genres" value="Action"> Action</label>
+                                <label><input type="checkbox" name="genres" value="Comedy"> Comedy</label>
+                                <label><input type="checkbox" name="genres" value="Family"> Family</label>
+                                <label><input type="checkbox" name="genres" value="History"> History</label>
+                                <label><input type="checkbox" name="genres" value="Mystery"> Mystery</label>
+                                <label><input type="checkbox" name="genres" value="Sci-Fi"> Sci-Fi</label>
+                                <label><input type="checkbox" name="genres" value="War"> War</label>
+                                <label><input type="checkbox" name="genres" value="Western"> Western</label>
+                                <label><input type="checkbox" name="genres" value="Adventure"> Adventure</label>
+                                <label><input type="checkbox" name="genres" value="Crime"> Crime</label>
+                                <label><input type="checkbox" name="genres" value="Fantasy"> Fantasy</label>
+                                <label><input type="checkbox" name="genres" value="Horror"> Horror</label>
+                                <label><input type="checkbox" name="genres" value="Thriller"> Thriller</label>
+                            </div>
+                            <input type="number" name="releaseYear" placeholder="Enter year" min="1900" max="2100">
+                            <button type="submit">Filter</button>
+                        </div>
+                    </form>
+                </li>
             </ul>
             <div id="search">
                 <form method="get">
                     <label for="search-field">SEARCH</label>
-                    <input type="text" placeholder="Find movie..." id="search-field" name="filmName"/>
+                    <input type="text" placeholder="Find movie..." id="search-field" name="filmName" />
                     <input type="submit" value="GO!" class="search-button" />
                 </form>
             </div>
@@ -131,6 +153,7 @@
 </div>
 
 <style>
+
     * {
         margin: 0;
         padding: 0;
@@ -218,9 +241,12 @@
 
         #sub-navigation ul {
             list-style: none;
+            padding: 0;
         }
 
             #sub-navigation ul li {
+                display: inline-block;
+                position: relative;
                 float: left;
                 padding-right: 23px;
             }
@@ -231,11 +257,60 @@
                     color: #fff;
                     line-height: 24px;
                     text-decoration: none;
+                    display: block;
                 }
 
                     #sub-navigation ul li a:hover {
                         text-decoration: underline;
                     }
+
+    #sub-navigation ul li:hover .dropdown {
+        display: block;
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: black;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        z-index: 1;
+        width: 300px;
+    }
+
+    .genres {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+        .genres label {
+            margin-bottom: 5px;
+            display: block;
+        }
+
+    .dropdown input[type="number"] {
+        width: 100%;
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .dropdown button {
+        width: 100%;
+        padding: 10px;
+        background: none;
+        color: #fff;
+        border: 0;
+        cursor: pointer;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+        .dropdown button:hover {
+            background-color: #0056b3;
+        }
 
     #search {
         width: 346px;
