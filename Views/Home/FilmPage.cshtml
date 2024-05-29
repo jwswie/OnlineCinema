@@ -5,81 +5,342 @@
     ViewData["Title"] = "Film Page";
 }
 
-<div class="container">
-    <header class="site-header">
-        <h1 class="site-title">Fresh Cucumbers</h1>
-    </header>
+<div id="main-container">
+    <header>
+        <h1 id="logo">Fresh Cucumbers</h1>
 
-    <div class="column two-thirds">
-        <iframe src="@Model.FilmTrailer" width="1000" height="533" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
-        <h1 class="entry-title">@Model.FilmName</h1>
-        <p>@Model.ReleaseYear</p>
-        <p>Director: @Model.Director</p>
-        <p>Screenwriter: @Model.Scenarist</p>
-        <blockquote><p>@Model.FilmDescription</p></blockquote>
-        <p>@Model.Actors</p>
+        <div id="navigation">
+            <ul>
+                <li><a class="active" href="#">HOME</a></li>
+                <li><a href="#">NEW</a></li>
+                <li><a href="#">HOT</a></li>
+                <li><a href="#">COMING SOON</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="#">YOUR PROFILE</a></li>
+            </ul>
+        </div>
+
+        <div id="sub-navigation">
+            <ul>
+                <li><a href="#">SHOW ALL</a></li>
+                <li><a href="#">LATEST MOVIES</a></li>
+                <li><a href="#">TOP RATED</a></li>
+                <li><a href="#">CATEGORIES</a></li>
+            </ul>
+            <div id="search">
+                <form method="get">
+                    <label for="search-field">SEARCH</label>
+                    <input type="text" name="search field" placeholder="Find movie..." id="search-field" class="blink search-field" />
+                    <input type="submit" value="GO!" class="search-button" />
+                </form>
+            </div>
+        </div>
+
+    </header>
+    <h2>@Model.FilmName</h2>
+    <div id="film-grid">
+        <div class="box">
+            <div class="movie">
+                <div class="movie-image"><img src="@Model.FilmPoster" alt="" /></div>
+            </div>
+
+            <div class="box">
+
+                <div class="movie-info">
+                    <ul>
+                        <li>Release Year: @Model.ReleaseYear</li>
+                        <li>Director: @Model.Director</li>
+                        <li>Screenwriter: @Model.Scenarist</li>
+                        <li>Genre: @Model.FilmGenre</li>
+                        <li>Actors: @Model.Actors</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="divider">-</div>
+        </div>
+
+        <div class="box">
+            <div class="movie-info">
+                <p class="header">Film Description</p>
+                <p class="movie-infoP">@Model.FilmDescription</p>
+            </div>
+        </div>
     </div>
 </div>
 
 
 
-<style>
-    body {
-        background: #fff;
-        letter-spacing: 1px;
-    }
-
-    html {
-        border: 7px solid #2a7831;
-    }
-
-    .container {
-        margin: 0 auto;
-        width: 960px;
-    }
-
-    .column {
-        float: left;
-        margin-bottom: 0;
-        padding: 0 15px;
-    }
-
-        .column.two-thirds {
-            width: 66.7%;
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
         }
 
-    .site-header {
-        padding-top: 2em;
-        padding-bottom: 1em;
-    }
+        body {
+            font-size: 12px;
+            line-height: 1.3;
+            font-family: Arial, Helvetica, Sans-Serif;
+            color: #ccc;
+            background: black;
+        }
 
-    .site-title {
-        font-family: 'Herr Von Muellerhoff';
-        font-size: 60px;
-        font-weight: 300;
-        letter-spacing: 2px;
-        line-height: 1;
-        margin-top: 25px;
-        margin-bottom: 20px;
-        text-align: center;
-    }
+        a {
+            color: #66f200;
+            text-decoration: underline;
+            cursor: pointer;
+        }
 
-    p {
-        margin-bottom: 1.5em;
-        color: #666666;
-    }
+            a:hover {
+                text-decoration: none;
+            }
 
-    blockquote {
-        border-left: 5px solid #2a7831;
-        margin-bottom: 20px;
-        padding: 10px 20px;
-    }
+        .divider {
+            line-height: 0;
+            text-indent: -4000px;
+            clear: both;
+        }
 
-    .entry-title {
-        font-weight: 700;
-        font-size: 20px;
-        letter-spacing: 2px;
-        line-height: 1.4;
-        text-transform: uppercase;
-    }
-</style>
+        .text-right {
+            text-align: right;
+        }
+
+        h2 {
+            font-size: 30px;
+            color: #66f200;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        #main-container {
+            width: 980px;
+            margin: 0 auto;
+        }
+
+        #logo {
+            position: relative;
+            top: 37px;
+            left: 0;
+            float: left;
+            font-size: 35px;
+        }
+
+        #navigation {
+            float: right;
+            padding-top: 28px;
+            padding-bottom: 47px;
+        }
+
+            #navigation ul {
+                list-style: none;
+            }
+
+                #navigation ul li {
+                    float: left;
+                    padding-left: 29px;
+                }
+
+                    #navigation ul li a {
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: #fff;
+                        text-decoration: none;
+                    }
+
+                        #navigation ul li a.active, #navigation ul li a:hover {
+                            color: #66f200;
+                        }
+
+        #sub-navigation {
+            clear: right;
+            border-top: 1px dashed #666;
+            border-bottom: 1px dashed #666;
+            padding: 8px 0;
+        }
+
+            #sub-navigation ul {
+                list-style: none;
+            }
+
+                #sub-navigation ul li {
+                    float: left;
+                    padding-right: 23px;
+                }
+
+                    #sub-navigation ul li a {
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: #fff;
+                        line-height: 24px;
+                        text-decoration: none;
+                    }
+
+                        #sub-navigation ul li a:hover {
+                            text-decoration: underline;
+                        }
+
+        #search {
+            width: 346px;
+            margin: 0 0 0 auto;
+        }
+
+            #search label {
+                float: left;
+                font-size: 14px;
+                font-weight: bold;
+                color: #fff;
+                line-height: 24px;
+                padding-right: 6px;
+            }
+
+        .search-field {
+            width: 238px;
+            border: 1px solid #413e3e;
+            background: #000;
+            color: #787878;
+            padding: 2px 0 2px 2px;
+        }
+
+        .search-button {
+            font-size: 14px;
+            font-weight: bold;
+            border: 0;
+            background: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #film-grid {
+            border-bottom: 1px dashed #413e3e;
+        }
+
+        .box {
+            width: 980px;
+            /*border-bottom:1px dashed #413e3e;*/
+            padding-bottom: 21px;
+        }
+
+        .head {
+            width: 980px;
+            padding-top: 14px;
+            padding-bottom: 11px;
+        }
+
+            .head h2 {
+                float: left;
+            }
+
+        .movie {
+            width: 152px;
+            float: left;
+            padding-right: 12px;
+            margin-top: 10px;
+        }
+
+        .movie-image {
+            float: left;
+            width: 152px;
+            height: 214px;
+            position: relative;
+        }
+
+        .play {
+            position: absolute;
+            width: 152px;
+            height: 214px;
+            background: url('images/image-hover.png');
+            z-index: 5;
+            cursor: pointer;
+            display: none;
+        }
+
+        .movie span.name {
+            font-weight: bold;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            padding-top: 160px;
+            display: none;
+        }
+
+        .movie-image:hover .play,
+        .movie-image:hover .name {
+            display: block;
+        }
+
+        .box .last {
+            padding: 0;
+        }
+
+        .rating {
+            float: left;
+            width: 152px;
+            padding-top: 8px;
+        }
+
+            .rating p {
+                float: left;
+                font-size: 10px;
+                color: #fff;
+                font-weight: bold;
+            }
+
+            .rating .stars {
+                float: left;
+                width: 60px;
+                height: 11px;
+                background: url('images/stars.gif') no-repeat 0 0;
+                margin-left: 2px;
+            }
+
+            .rating .stars-in {
+                width: 48px;
+                display: inline;
+                background: url('images/stars.gif') no-repeat 0 bottom;
+                position: absolute;
+                height: 11px;
+                font-size: 0;
+                line-height: 0;
+                text-indent: -4000px;
+            }
+
+        .comments {
+            background: url('images/comments.gif') no-repeat 0 center;
+            padding-left: 12px;
+            float: right;
+        }
+
+        .movie-info {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+            .movie-info ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            .movie-info li {
+                margin-bottom: 10px;
+            }
+
+                .movie-info li strong {
+                    display: inline-block;
+                    width: 120px;
+                }
+
+            .movie-infoP {
+                margin-top: 10px;
+                font-size: 15px;
+            }
+
+            .header {
+                margin-top: 10px;
+                font-size: 25px;
+            }
+
+                .movie-info p strong {
+                    font-size: 1.2em;
+                }
+  
+    </style>

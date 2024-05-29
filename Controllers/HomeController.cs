@@ -33,12 +33,9 @@ namespace OnlineCinema.Controllers
                 filteredFilms = filteredFilms.Where(f => f.FilmName.ToLower().Contains(filmName.ToLower()));
             }
 
-            if (genres != null)
+            if (genres.Any())
             {
-                foreach (var genre in genres)
-                {
-                    filteredFilms = filteredFilms.Where(f => f.FilmGenre == genre);
-                }
+               filteredFilms = filteredFilms.Where(f => genres.Contains(f.FilmGenre));
             }
 
             if (releaseYear > 1872)
