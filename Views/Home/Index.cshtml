@@ -48,7 +48,7 @@
 
 @foreach (var film in Model){
             <div class="movie">
-                <div class="movie-image"> <span class="play"><span class="name">@film.FilmName</span></span> <a href="Home/FilmPage?id=@film.ID"><img src="@film.FilmPoster" alt="Film-Poster-Image" /></a> </div>
+                    <div class="movie-image"> <span class="play"><a href="@Url.Action("Like", new { filmId = film.ID, userId = 1 })">Like</a><span class="name">@film.FilmName</span></span> <a href="Home/FilmPage?id=@film.ID"><img src="@film.FilmPoster" alt="Film-Poster-Image" /></a></div>
                 <div class="rating">
                     <p>RATING</p>
                     <div class="stars">
