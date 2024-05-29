@@ -15,7 +15,6 @@ namespace OnlineCinema.Controllers
 
         private readonly ApplicationDbContext _context;
 
-        List<LikedFilm> likedFilms = new List<LikedFilm>() { };
 
         public HomeController(ApplicationDbContext context)
         {
@@ -33,11 +32,6 @@ namespace OnlineCinema.Controllers
                 filteredFilms = filteredFilms.Where(f => f.FilmName.ToLower().Contains(filmName.ToLower()));
             }
 
-            if (likedFilms.Count > 0)
-            {
-                return View(new List<Film>() { likedFilms[0].Film });
-            }
-
             return View(filteredFilms);
         }
 
@@ -53,9 +47,8 @@ namespace OnlineCinema.Controllers
 
         public async Task<IActionResult> Like(int filmId, int userId)
         {
-            likedFilms.Add(new LikedFilm() {UserID = userId,FilmID = filmId });
             var likedfilm = await _context.LikedFilms.ToListAsync();
-            var checklikedfilm = likedFilms.Where(l => l.UserID == userId && l.FilmID == filmId);
+            var checklikedfilm = likedfilm.Where(l => l.UserID == userId && l.FilmID == filmId);
             if (checklikedfilm == null)
             {
                 _context.LikedFilms.Add(new LikedFilm { UserID = userId, FilmID = filmId });
