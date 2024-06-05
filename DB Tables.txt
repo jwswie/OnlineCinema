@@ -13,6 +13,21 @@ CREATE TABLE Films (
     Actors NVARCHAR(MAX) NOT NULL
 )
 
+CREATE TABLE Users (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    UserName NVARCHAR(255) NOT NULL,
+    Mail NVARCHAR(255) NOT NULL,
+    Password NVARCHAR(255) NOT NULL
+)
+
+CREATE TABLE LikedFilms (
+    UserID INT NOT NULL,
+    FilmID INT NOT NULL,
+    PRIMARY KEY (UserID, FilmID),
+    FOREIGN KEY (UserID) REFERENCES Users(ID) ON DELETE CASCADE,
+    FOREIGN KEY (FilmID) REFERENCES Films(ID) ON DELETE CASCADE
+)
+
 INSERT INTO Films (FilmName, FilmPoster, FilmGenre, ReleaseYear, FilmDescription, FilmTrailer, Director, Scenarist, Actors)
 VALUES
 ('Dune', 'images/01.jpg', 'Sci-Fi', 2021, 'Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding, must travel to the most dangerous planet in the universe to ensure the future of his family and his people. As malevolent forces explode into conflict over the planet exclusive supply of the most precious resource in existence, only those who can conquer their own fear will survive', 'https://embed.api.video/vod/vi43JvMxUitfM1kZvctJUKHN','Denis Villeneuve', 'Jon Spaihts, Denis Villeneuve, Eric Roth', 'Timothée Chalamet, Rebecca Ferguson, Oscar Isaac, Jason Momoa, Stellan Skarsgård'),
@@ -22,5 +37,6 @@ VALUES
 ('Pulp Fiction', 'images/05.jpg', 'Crime', 1994, 'Vincent Vega and Jules Winnfield are hitmen with a penchant for philosophical discussions. In this ultra-hip, multi-strand crime movie, their storyline is interwoven with those of their boss, gangster Marsellus Wallace; his actress wife, Mia; struggling boxer Butch Coolidge; master fixer Winston Wolfe and a nervous pair of armed robbers, "Pumpkin" and "Honey Bunny"', 'https://embed.api.video/vod/vi3O0KstlAZ9DFOkCFbBuFrD','Quentin Tarantino', 'Quentin Tarantino, Roger Avary', 'John Travolta, Uma Thurman, Samuel L. Jackson, Harvey Keitel, Bruce Willis'),
 ('Gladiator', 'images/06.jpg', 'History', 2000, 'Roman general Maximus Decimus Meridius, who is betrayed when Commodus, the ambitious son of Emperor Marcus Aurelius, murders his father and seizes the throne. Reduced to slavery, Maximus becomes a gladiator and rises through the ranks of the arena, determined to avenge the murders of his family and the emperor', 'https://embed.api.video/vod/vi3O0KstlAZ9DFOkCFbBuFrD','Ridley Scott', 'David Franzoni, John Logan, William Nicholson', 'Russell Crowe, Joaquin Phoenix, Connie Nielsen, Oliver Reed, Richard Harris')
 
-select * from Films
-drop table Films
+INSERT INTO Users (UserName, Mail, Password)
+VALUES
+('BobSmith', 'bob@gmail.com', '12345')
