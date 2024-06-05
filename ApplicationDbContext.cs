@@ -1,17 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineCinema.Models;
-using System.Collections.Generic;
 
 namespace OnlineCinema
 {
-    public class ApplicationDbContext: DbContext
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-          // Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
-       /* protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<LikedFilm>()
                 .HasKey(lf => new { lf.UserID, lf.FilmID });
@@ -25,10 +24,10 @@ namespace OnlineCinema
                 .HasOne(lf => lf.Film)
                 .WithMany(f => f.LikedFilms)
                 .HasForeignKey(lf => lf.FilmID);
-        }*/
+        }
 
         public DbSet<Film> Films { get; set; }
-       // public DbSet<User> Users { get; set; }
-       // public DbSet<LikedFilm> LikedFilms { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<LikedFilm> LikedFilms { get; set; }
     }
 }

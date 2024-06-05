@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace OnlineCinema.Models
+﻿namespace OnlineCinema.Models
 {
     public class LikedFilm
     {

@@ -55,5 +55,19 @@ namespace OnlineCinema.Controllers
             }
             return View(film);
         }
+
+        public async Task<IActionResult> Like(int filmId, int userId)
+        {
+            bool checkLikedFilm = await _context.LikedFilms.AnyAsync(l => l.UserID == userId && l.FilmID == filmId);
+
+            if (!checkLikedFilm)
+            {
+                _context.LikedFilms.Add(new LikedFilm { UserID = userId, FilmID = filmId });
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

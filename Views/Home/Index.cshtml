@@ -1,8 +1,11 @@
 ﻿﻿﻿@using OnlineCinema.Models
+
 @model IEnumerable<Film>
+
 
 @{
     ViewData["Title"] = "Online Cinema";
+
 }
 
 <div id="main-container">
@@ -68,17 +71,19 @@
                 <p class="text-right"><a href="#">See all</a></p>
             </div>
 
+
 @foreach (var film in Model){
-            <div class="movie">
-                <div class="movie-image"> <a href="Home/FilmPage?id=@film.ID"><span class="play"><span class="name">@film.FilmName</span></span> <img src="@film.FilmPoster" alt="Film-Poster-Image" /></a> </div>
-                <div class="rating">
-                    <p>RATING</p>
-                    <div class="stars">
-                        <div class="stars-in"> </div>
-                    </div>
-                    <span class="comments">12</span>
+        <div class="movie">
+            <div class="movie-image"> <a href="Home/FilmPage?id=@film.ID"><span class="play"><span class="name">@film.FilmName</span></span> <img src="@film.FilmPoster" alt="Film-Poster-Image" /></a> </div>
+
+            <div class="rating">
+                <p>RATING</p>
+                <div class="stars">
+                    <div class="stars-in"> </div>
                 </div>
+                <span class="comments">12</span>
             </div>
+        </div>
 }
 
 <div class="divider">-</div>
@@ -264,9 +269,9 @@
                         text-decoration: underline;
                     }
 
-    #sub-navigation ul li:hover .dropdown {
-        display: block;
-    }
+                #sub-navigation ul li:hover .dropdown {
+                    display: block;
+                }
 
     .dropdown {
         display: none;
