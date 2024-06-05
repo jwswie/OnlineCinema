@@ -41,7 +41,10 @@
     <div id="film-grid">
         <div class="box">
             <div class="movie">
-                <div class="movie-image"><img src="@Model.FilmPoster" alt="" /></div>
+                <div class="movie-image">
+                    <img src="@Url.Content("~/" + @Model.FilmPoster)" alt="Movie-Poster" />
+                </div>
+
             </div>
 
             <div class="box">
@@ -66,6 +69,11 @@
                 <p class="movie-infoP">@Model.FilmDescription</p>
             </div>
         </div>
+
+        <div class="box">
+            <iframe src="@Model.FilmTrailer" width="1000" height="533" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+        </div>
+        
     </div>
 </div>
 
@@ -216,7 +224,6 @@
 
         .box {
             width: 980px;
-            /*border-bottom:1px dashed #413e3e;*/
             padding-bottom: 21px;
         }
 
